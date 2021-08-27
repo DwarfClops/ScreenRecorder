@@ -41,7 +41,11 @@ class Recorder():
         self.CaptureLoop(frame,region)
 
     def SceenCaptureDisplay(self):
-        self.screenshot.display = self.screenshot.displays[0]
+        displays = self.screenshot.displays.__len__()
+        choice = 0
+        if displays > 1:
+            choice = input("Select display | number of Displays: "+str(displays)+" \n")
+        self.screenshot.display = self.screenshot.displays[int(choice)]
         frame = self.screenshot.screenshot()
         region = (0,0,1980,1080)
         self.CaptureLoop(frame,region)
@@ -54,5 +58,3 @@ class Recorder():
         key = cv2.waitKey(1)
         return key, frame
 
-a = Recorder()
-a.SelfController()

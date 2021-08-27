@@ -24,3 +24,9 @@ def ScreenRegionSelect():
     x2 = xy[1][0]
     y2 = xy[1][1]
     return x1, y1, x2, y2
+
+def SceenCaptureDisplay(screenshot):
+        screenshot.display = screenshot.displays[0]
+        frame = screenshot.screenshot()
+        region = (0,0,1980,1080)
+        return frame,region
